@@ -11,7 +11,6 @@ import java.sql.SQLException;
 import java.util.List;
 
 
-
 public class UserDaoHibernateImpl implements UserDao {
 
     public UserDaoHibernateImpl() {
@@ -30,7 +29,7 @@ public class UserDaoHibernateImpl implements UserDao {
             session.beginTransaction();
             session.createSQLQuery(table).executeUpdate();
             session.getTransaction().commit();
-        }   finally {
+        } finally {
             session.close();
         }
     }
@@ -40,9 +39,10 @@ public class UserDaoHibernateImpl implements UserDao {
         Session session = Util.getSession();
         try {
             session.beginTransaction();
-            session.createSQLQuery("DROP TABLE IF EXISTS users").executeUpdate();;
+            session.createSQLQuery("DROP TABLE IF EXISTS users").executeUpdate();
+            ;
             session.getTransaction().commit();
-        }   finally {
+        } finally {
             session.close();
         }
 
